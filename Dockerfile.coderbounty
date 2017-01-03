@@ -1,0 +1,10 @@
+FROM python:alpine
+
+RUN apk add postgresql-client
+# sudo apt-get install postgresql-client postgresql-server-dev-9.5 libffi-dev libjpeg-dev libmemcached-dev
+
+
+# https://github.com/berdario/pew
+RUN  pip install pew \
+  && pew new -d -r requirements.txt CODERBOUNTY
+CMD pew workon CODERBOUNTY

@@ -1,0 +1,24 @@
+version: '2'
+services:
+  coderbounty:
+    #image: coderbounty/core:local
+    build: 
+      context: .
+      dockerfile: Dockerfile.coderbounty
+#    hostname: ffa24
+    depends_on:
+      - postgres
+    environment:
+    - DATABASE_URL=postgres://postgres@db/coderbounty_test
+
+  #db:
+    #build: 
+    #  context: .
+    #  dockerfile: Dockerfile.postgres
+#    depends_on:
+#    - postgres
+#    volumes:
+#      - /data/db:/data/db
+
+  postgres:
+    image: postgres:latest 
